@@ -5,15 +5,13 @@ import org.junit.Test;
 
 import com.cpg.cafe.items.CafeItem;
 import com.cpg.cafe.items.CheeseSandwich;
-import com.cpg.cafe.items.Coffee;
 import com.cpg.cafe.items.Cola;
 import com.cpg.cafe.items.SteakSandwich;
 
-public class TestFoodService {
-	
+public class TestServiceCoins {
+
 	@Test
-	public void testServiceCharge() {
-		
+	public void testServiceChargeRounding() {
 		
 		ItemsToPurchase itemList = new ItemsToPurchase();
 		CafeItem cola = new Cola();
@@ -21,18 +19,19 @@ public class TestFoodService {
 		cola.setType("Cold drink");
 		itemList.addItem(cola);
 		
-		CafeItem coffee = new Coffee();
-		coffee.setPrice(100);
-		coffee.setType("Hot drink");
-		itemList.addItem(coffee);
-		Assert.assertTrue("1.50".equals(itemList.totalValue()));
-	
 		CafeItem cheese = new CheeseSandwich();
-		cheese.setPrice(200);
+		cheese.setPrice(100);
 		cheese.setType("Cold food");
 		itemList.addItem(cheese);
+		Assert.assertTrue("1.65".equals(itemList.totalValue()));
+	
+		CafeItem steak = new SteakSandwich();
+		steak.setPrice(450);
+		steak.setType("Hot food");
+		itemList.addItem(steak);
 		
-		Assert.assertTrue("3.85".equals(itemList.totalValue()));
-
+		String total = itemList.totalValue();
+		System.out.println("total: " +total);
+		Assert.assertTrue("7.20".equals(total));
 	}
 }

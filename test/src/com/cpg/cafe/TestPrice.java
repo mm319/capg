@@ -36,6 +36,6 @@ public class TestPrice {
 		price = itemList.addItem(steak);
 		Assert.assertEquals(Double.valueOf(450), Double.valueOf(price));
 		
-		Assert.assertEquals(Double.valueOf(800), Double.valueOf(itemList.totalValue()));
+		Assert.assertTrue("8.00".equals(itemList.totalValue()));
 	}
 }

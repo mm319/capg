@@ -1,5 +1,6 @@
 package com.cpg.cafe;
 
+import java.text.DecimalFormat;
 import java.util.Hashtable;
 import java.util.Set;
 
@@ -29,7 +30,7 @@ public class ItemsToPurchase {
 		return items.get(cafeItem);
 	}
 	
-	public double totalValue() {
+	public String totalValue() {
 		
 		double total = 0;
 		boolean foodItem = false;
@@ -57,6 +58,8 @@ public class ItemsToPurchase {
 			total = total*1.2;
 		}
 		
-		return total;
+		DecimalFormat df = new DecimalFormat("###.00");
+		
+		return df.format(total/100).toString();
 	}
 }

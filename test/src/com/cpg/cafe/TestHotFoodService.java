@@ -24,14 +24,14 @@ public class TestHotFoodService {
 		cheese.setPrice(100);
 		cheese.setType("Cold food");
 		itemList.addItem(cheese);
-		Assert.assertEquals(Double.valueOf(165), Double.valueOf(itemList.totalValue()));
-	
+		Assert.assertTrue("1.65".equals(itemList.totalValue()));
+		
 		CafeItem steak = new SteakSandwich();
 		steak.setPrice(450);
 		steak.setType("Hot food");
 		itemList.addItem(steak);
 		
-		Assert.assertEquals(Double.valueOf(720), Double.valueOf(itemList.totalValue()));
+		Assert.assertTrue("7.20".equals(itemList.totalValue()));
 	}
 		
 }
