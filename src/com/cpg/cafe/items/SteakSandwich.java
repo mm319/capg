@@ -2,28 +2,26 @@ package com.cpg.cafe.items;
 
 public class SteakSandwich implements CafeItem {
 
+	private double price;
+	private String type;
+
 	@Override
 	public void setPrice(double price) {
-		// TODO Auto-generated method stub
-
+		this.price = price;
 	}
 
 	@Override
 	public void setType(String type) {
-		// TODO Auto-generated method stub
-
+		this.type = type;
 	}
 
 	@Override
 	public double getPrice() {
-		// TODO Auto-generated method stub
-		return 0;
+		return price;
 	}
 
 	@Override
 	public String getType() {
-		// TODO Auto-generated method stub
-		return null;
+		return type;
 	}
-
 }
