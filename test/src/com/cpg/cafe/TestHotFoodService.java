@@ -5,7 +5,6 @@ import org.junit.Test;
 
 import com.cpg.cafe.items.CafeItem;
 import com.cpg.cafe.items.CheeseSandwich;
-import com.cpg.cafe.items.Coffee;
 import com.cpg.cafe.items.Cola;
 import com.cpg.cafe.items.SteakSandwich;
 
@@ -24,14 +23,14 @@ public class TestHotFoodService {
 		cheese.setPrice(100);
 		cheese.setType("Cold food");
 		itemList.addItem(cheese);
-		Assert.assertTrue("1.65".equals(itemList.totalValue()));
+		Assert.assertTrue("1.65".equals(itemList.totalValue().getTotalPrice()));
 		
 		CafeItem steak = new SteakSandwich();
 		steak.setPrice(450);
 		steak.setType("Hot food");
 		itemList.addItem(steak);
 		
-		Assert.assertTrue("7.20".equals(itemList.totalValue()));
+		Assert.assertTrue("7.20".equals(itemList.totalValue().getTotalPrice()));
 	}
 		
 }

@@ -9,7 +9,6 @@ import com.cpg.cafe.items.CafeItem;
 public class ItemsToPurchase {
 
 	private Hashtable<CafeItem, Integer> items;
-	private static double serviceCharge;
 	
 	public ItemsToPurchase() {
 		items = new Hashtable<CafeItem, Integer>();
@@ -30,14 +29,18 @@ public class ItemsToPurchase {
 		return items.get(cafeItem);
 	}
 	
-	public String totalValue() {
+	public ServiceChange totalValue() {
 		
 		double total = 0;
 		double serviceCharge = 0;
 		boolean foodItem = false;
 		boolean hotFood = false;
 		
+		ServiceChange sc = new ServiceChange();
+		
+		
 		Set<CafeItem> keys = items.keySet();
+		Hashtable<CafeItem, Double> itemPrice = new Hashtable<CafeItem, Double>();
 			
 		for (CafeItem k: keys) {
 			
@@ -49,6 +52,8 @@ public class ItemsToPurchase {
 			
 			int amount = items.get(k);
 			total += amount*k.getPrice();
+			
+			itemPrice.put(k, k.getPrice());
 		}
 		
 		if (foodItem && !hotFood) {
@@ -62,9 +67,15 @@ public class ItemsToPurchase {
 		if (serviceCharge > 2000)
 			serviceCharge = 2000;
 		
+		sc.setItems(itemPrice);
+		sc.setTotalPriceofItems(total/100);
+		sc.setServiceCharge(serviceCharge/100);
+		
 		total += serviceCharge; 
 		DecimalFormat df = new DecimalFormat("###.00");
 		
-		return df.format(total/100).toString();
+		sc.setTotalPrice(df.format(total/100).toString());
+		
+		return sc;
 	}
 }

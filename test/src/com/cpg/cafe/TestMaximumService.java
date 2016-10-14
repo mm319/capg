@@ -39,7 +39,7 @@ public class TestMaximumService {
 			itemList.addItem(steak);
 		}
 		
-		Assert.assertTrue("132.00".equals(itemList.totalValue()));
+		Assert.assertTrue("132.00".equals(itemList.totalValue().getTotalPrice()));
 	}
 		
 }

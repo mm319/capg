@@ -23,13 +23,13 @@ public class TestServiceCoins {
 		cheese.setPrice(100);
 		cheese.setType("Cold food");
 		itemList.addItem(cheese);
-		Assert.assertTrue("1.65".equals(itemList.totalValue()));
+		Assert.assertTrue("1.65".equals(itemList.totalValue().getTotalPrice()));
 	
 		CafeItem steak = new SteakSandwich();
 		steak.setPrice(450);
 		steak.setType("Hot food");
 		itemList.addItem(steak);
 		
-		Assert.assertTrue("7.20".equals(itemList.totalValue()));
+		Assert.assertTrue("7.20".equals(itemList.totalValue().getTotalPrice()));
 	}
 }
