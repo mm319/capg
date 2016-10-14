@@ -3,7 +3,7 @@ package com.cpg.cafe.items;
 public class SteakSandwich implements CafeItem {
 
 	private double price;
-	private String type;
+	private String type = "";
 
 	@Override
 	public void setPrice(double price) {
