@@ -33,6 +33,7 @@ public class ItemsToPurchase {
 	public String totalValue() {
 		
 		double total = 0;
+		double serviceCharge = 0;
 		boolean foodItem = false;
 		boolean hotFood = false;
 		
@@ -51,13 +52,17 @@ public class ItemsToPurchase {
 		}
 		
 		if (foodItem && !hotFood) {
-			total = total*1.1;
+			serviceCharge = total*.1;
 		}
 		
 		if (hotFood) {
-			total = total*1.2;
+			serviceCharge = total*.2;
 		}
 		
+		if (serviceCharge > 2000)
+			serviceCharge = 2000;
+		
+		total += serviceCharge; 
 		DecimalFormat df = new DecimalFormat("###.00");
 		
 		return df.format(total/100).toString();
