@@ -33,6 +33,7 @@ public class ItemsToPurchase {
 		
 		double total = 0;
 		boolean foodItem = false;
+		boolean hotFood = false;
 		
 		Set<CafeItem> keys = items.keySet();
 			
@@ -41,13 +42,21 @@ public class ItemsToPurchase {
 			if (k.getType().toLowerCase().contains("food")) 
 				foodItem = true;
 			
+			if (k.getType().toLowerCase().contains("hot food")) 
+				hotFood = true;
+			
 			int amount = items.get(k);
 			total += amount*k.getPrice();
 		}
 		
-		if (foodItem) {
+		if (foodItem && !hotFood) {
 			total = total*1.1;
 		}
+		
+		if (hotFood) {
+			total = total*1.2;
+		}
+		
 		return total;
 	}
 }

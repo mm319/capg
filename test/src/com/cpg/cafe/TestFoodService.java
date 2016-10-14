@@ -8,7 +8,7 @@ import com.cpg.cafe.items.Coffee;
 import com.cpg.cafe.items.Cola;
 import com.cpg.cafe.items.SteakSandwich;
 
-public class TestService {
+public class TestFoodService {
 	
 	@Test
 	public void testServiceCharge() {
@@ -31,7 +31,7 @@ public class TestService {
 		steak.setType("Hot food");
 		itemList.addItem(steak);
 		
-		Assert.assertEquals(Double.valueOf(720), Double.valueOf(itemList.totalValue()));
+		Assert.assertEquals(Double.valueOf(660), Double.valueOf(itemList.totalValue()));
 	
 	}
 }
